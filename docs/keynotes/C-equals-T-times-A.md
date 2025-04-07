@@ -58,9 +58,6 @@ Even gravity warps time. Astronauts age fractions slower. Yet inside, they feel 
 In altered states—near-death, deep meditation, or psychedelic vision—time may halt, collapse, or spiral. We enter the eternal moment. Time, it seems, is not fixed. It is **shaped** by attention.
 
 Some say "time is money." But is it?  
-I once asked my mentor Ulysses:  
-*"Did Chris Gardner's time only become valuable the moment he walked into that brokerage firm?"*  
-Was his time, as a homeless man, worthless until the money came?
 
 The deeper question:  
 Is a billionaire’s minute worth more than a homeless man’s hour?  
