@@ -87,3 +87,55 @@ Due to workday constraints, the project will begin with **three daily data captu
 - Prior Army Infantry Officer  
 - Builder of Project Mnemosyne  
 - Passionate about psychology, trading, and the evolution of time-conscious AI systems
+
+- ---
+
+## ✅ Recent Progress: Modeling Pipeline Achieved
+
+As of April 2025, the GIM project has successfully implemented its first full research and modeling pipeline. This major milestone includes:
+
+### 📁 Modular Notebooks Built
+
+| Notebook | Purpose | Output |
+|----------|---------|--------|
+| `GIM_00_Master_Cleaner.ipynb` | Cleans raw Fidelity ATP exports (3x daily snapshots) | `/cleaned/*.csv` |
+| `GIM_01_Clean_ATP_Options_Export.ipynb` | Stores and evolves cleaning logic | Internal function module |
+| `GIM_02_Merge_Snapshots.ipynb` | Merges each day’s Morning, Midday, EOD snapshots into delta-enriched rows | `/intermediate/*.csv` |
+| `GIM_03_Modeling.ipynb` | Trains ML model to predict EOD IV spikes from early-day deltas | Accuracy ~85%, with feature importance |
+
+---
+
+### 🎯 First Model Objective
+
+Train a binary classifier to detect when an option contract is likely to **spike in implied volatility (IV)** into market close — based on its **volume and IV behavior between morning and midday**.
+
+- Label: Top 20% of `IV_Mid_md2eod` → `Class 1 (spike)`
+- Features: `Volume_m2md`, `Volume_md2eod`, `IV_Mid_m2md`
+- Model: `RandomForestClassifier`
+- Accuracy: ~85% (on test set)
+
+**Key Insight:**  
+> Early IV momentum (between Morning and Midday) is the strongest predictor of a late-day spike — more so than volume bursts alone.
+
+---
+
+### 🔍 Interpretability Cells Added
+
+The final modeling notebook includes analysis of:
+- ✅ True Positive contracts (model correctly predicted a spike)
+- ❌ False Positive contracts (model over-predicted a spike)
+- 🆔 Contract `Symbol` included for cross-reference with live T&S data
+
+---
+
+### 🔜 Next Steps
+
+- Add features: `Open Interest` deltas, spread compression, relative-to-strike flag
+- Expand beyond TQQQ (SPY, QQQ, etc.)
+- Build a live scoring function (`score_contract()`)
+- Investigate whether these early signals correlate with known arbitrage mechanics
+
+---
+
+This progress marks GIM’s evolution from research design to a functioning research tool and prototype. More to come.
+
